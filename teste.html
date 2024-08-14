@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet"  href="index.css">
+</head>
+<body>
+    <nav class="menu" id="menu">
+        <ul>
+            <li><a href="#animais">Animais</a></li>
+            <li><a href="#faq">Faq</a></li>
+            <li><a href="#contato">Contato</a></li>
+            <li><a href="#dev">Dev →</a></li>
+            <li><a href="teste.html">Teste</a></li>
+        </ul>
+    </nav>
+
+    <section class="secao-de-teste" id="secao-de-teste">
+        <ul>
+            <li>
+                <div><span>Pinguim-imperador</span> O pinguim-imperador (Aptenodytes forsteri) é uma das espécies mais icônicas de pinguins. Essas aves vivem nas regiões mais frias da Antártida e são conhecidas por sua incrível adaptação ao ambiente gelado. Com suas plumas densas e impermeáveis, os pinguins-imperadores conseguem mergulhar a profundidades impressionantes em busca de alimento. Além disso, eles formam colônias enormes durante a época de reprodução, onde os machos cuidam dos ovos enquanto as fêmeas vão em busca de comida no mar gelado.</div>
+            </li>
+            <li>
+                <div><span>Tigre</span> O tigre(Panthera tigris) é o maior felino do mundo e um símbolo de força e elegância. Encontrado principalmente na Ásia, o tigre possui listras distintas em sua pelagem, que variam de acordo com a subespécie. Infelizmente, muitas subespécies de tigres estão ameaçadas de extinção devido à caça ilegal e à destruição de seus habitats naturais. No entanto, esforços de conservação estão sendo feitos para proteger esses majestosos animais.</div>
+            </li>
+            <li>
+                <div><span>Golfinho</span> Os golfinhos são mamíferos marinhos inteligentes e sociais. Existem várias espécies de golfinhos, e eles são encontrados em todos os oceanos do mundo. Esses animais são conhecidos por sua habilidade de nadar rapidamente, saltar fora d’água e se comunicar por meio de sons complexos. Além disso, os golfinhos muitas vezes formam grupos chamados “pods”, onde interagem e cooperam na busca por alimento.</div>
+            </li>
+            <li>
+                <div><span>Elefante Africano</span> O elefante africano (Loxodonta africana) é o maior animal terrestre. Esses gigantes gentis habitam as savanas e florestas da África subsaariana. Suas orelhas enormes ajudam a dissipar o calor e regulam a temperatura corporal. Os elefantes são altamente sociais e vivem em grupos liderados por uma fêmea mais velha, chamada de matriarca. Infelizmente, a caça ilegal por marfim e a perda de habitat ameaçam a sobrevivência desses magníficos animais.</div>
+            </li>
+            <li>
+                <div><span>Orangotango</span> O orangotango (Pongo spp.) é um dos parentes mais próximos dos seres humanos. Encontrado nas florestas tropicais da Indonésia e Malásia, o orangotango é conhecido por sua inteligência e habilidades de construção de ninhos. Eles passam a maior parte de suas vidas nas árvores, se alimentando de frutas, folhas e insetos. Infelizmente, a destruição das florestas tropicais e o comércio ilegal de animais de estimação colocam em risco a sobrevivência desses primatas incríveis.</div>
+            </li>
+        </ul>
+
+        <!-- Adicionar texto -->
+        <div class="area-adicionar" id="area-adicionar">
+
+            <h2>Adicionar texto</h2>
+            <textarea placeholder="Adicionar texto" name="texto-adicionar" id="texto-adicionar"></textarea>
+            <div class="button-adicionar" id="button-adicionar">
+                <button type="button">Adicionar</button>
+            </div>
+        </div>
+    </section>
+</body>
+
+<style>
+    #secao-de-teste{
+        grid-column: 3 / 4;
+    }
+
+    #secao-de-teste ul li{
+        margin-bottom: 20px;
+    }
+    #secao-de-teste ul li span{
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    #area-adicionar textarea{
+        width: 80%;
+        height: 80px;
+    }
+    
+</style>
+
+<script defer>
+    let adicionarBtn = document.getElementById("button-adicionar");
+    let adicionarTexto = document.getElementById("texto-adicionar");
+    let adicionarArea = document.querySelector("#secao-de-teste ul");
+    adicionarBtn.addEventListener("click", Adicionar);
+
+    function Adicionar(){
+
+        if(adicionarTexto.value.length > 0){
+            // adicionar span no lugar de ** **
+            TrocaPorSpan(adicionarTexto.value.toString());
+        }
+    }
+
+    function TrocaPorSpan(texto) {
+
+        let primeiroItem = true;    
+
+        console.log(texto.search(/@@/) > 0);
+        console.log(texto.search(/@@/));
+        while(texto.search(/@@/) >= 0){
+
+            if(primeiroItem == true){
+                texto.replace("@@", "<span>");
+                primeiroItem == false
+            }else{
+                texto.replace("@@", "</span>");
+                primeiroItem == true
+            }
+        }
+        console.log(texto);
+
+    }
+</script>
+
+</html>
